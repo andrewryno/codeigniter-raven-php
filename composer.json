@@ -1,0 +1,5 @@
+{
+    "require": {
+        "raven/raven": "dev-master"
+    }
+}
