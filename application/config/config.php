@@ -13,3 +13,4 @@
 $config['raven_client'] = 'DSN string here';
 $config['raven_config'] = array();
 $config['raven_log_threshold'] = array('ERROR');
+$config['raven_environments'] = array('production');
