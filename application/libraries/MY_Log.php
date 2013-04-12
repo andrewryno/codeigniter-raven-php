@@ -12,6 +12,8 @@ class MY_Log extends CI_Log {
 
 		$this->config =& get_config();
 
+		if ( ! in_array(ENVIRONMENT, $this->config['raven_environments'])) return;
+
 		try
 		{
 			// If Raven_Client isn't already defined, include the autoloader
