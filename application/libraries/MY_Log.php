@@ -11,7 +11,8 @@ class MY_Log extends CI_Log {
 		parent::__construct();
 
 		$this->config =& get_config();
-
+		
+		// Environment check
 		if ( ! in_array(ENVIRONMENT, $this->config['raven_environments'])) return;
 
 		try
@@ -52,6 +53,9 @@ class MY_Log extends CI_Log {
 
 	public function write_log($level = 'error', $msg, $php_error = FALSE)
 	{
+		// Environment check
+		if ( ! in_array(ENVIRONMENT, $this->config['raven_environments'])) return;
+		
 		if ($this->_enabled === FALSE)
 		{
 			return FALSE;
