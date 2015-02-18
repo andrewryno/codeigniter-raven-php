@@ -1,16 +1,26 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class MY_Log extends CI_Log {
+class MY_Log {
 
 	protected $_config;
 	protected $_raven;
 	protected $_raven_levels = array();
+	protected $_threshold = 1;
+	protected $_levels = array('ERROR' => '1', 'DEBUG' => '2',  'INFO' => '3', 'ALL' => '4');
 
 	public function __construct()
 	{
-		parent::__construct();
-
 		$this->config =& get_config();
+		
+		if (is_numeric($this->config['log_threshold']))
+		{
+			$this->_threshold = $this->config['log_threshold'];
+		}
+
+		if ($this->config['log_date_format'] != '')
+		{
+			$this->_date_fmt = $this->config['log_date_format'];
+		}
 		
 		// Environment check
 		if ( ! in_array(ENVIRONMENT, $this->config['raven_environments'])) return;
@@ -55,11 +65,6 @@ class MY_Log extends CI_Log {
 	{
 		// Environment check
 		if ( ! in_array(ENVIRONMENT, $this->config['raven_environments'])) return;
-		
-		if ($this->_enabled === FALSE)
-		{
-			return FALSE;
-		}
 
 		$level = strtoupper($level);
 
