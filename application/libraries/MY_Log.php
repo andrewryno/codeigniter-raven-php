@@ -25,7 +25,7 @@ class MY_Log extends CI_Log {
 			}
 
 			// Create a new Raven Client with the extra options if they exist
-			if (empty($config['raven_config'])) {
+			if (empty($this->config['raven_config'])) {
 				$this->_raven = new Raven_Client($this->config['raven_client']);
 			} else {
 				$this->_raven = new Raven_Client($this->config['raven_client'], $this->config['raven_config']);
