@@ -1,6 +1,6 @@
-# Codeigniter Raven PHP
+# CodeIgniter Raven PHP
 
-This project allows you to easily use [raven-php](https://github.com/getsentry/raven-php) inside of Codeigniter to use with Sentry or any other Raven client.
+This project allows you to easily use [raven-php](https://github.com/getsentry/raven-php) inside of CodeIgniter to use with Sentry or any other Raven client.
 
 To install MY_Log:
 
