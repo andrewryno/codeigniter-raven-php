@@ -43,6 +43,7 @@ class MY_Log extends CI_Log {
 			$error_handler = new Raven_ErrorHandler($this->_raven);
 			$error_handler->registerErrorHandler();
 			$error_handler->registerExceptionHandler();
+			$error_handler->registerShutdownFunction();
 		}
 		catch (Exception $e)
 		{
